@@ -140,3 +140,6 @@ crashlytics-build.properties
 # Keys
 *.keystore
 *.jks
+
+# Test results
+/TestResults/
