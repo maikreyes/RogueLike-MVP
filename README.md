@@ -34,18 +34,26 @@ You are alone in one room. Survive three waves of enemies, pick one of three upg
 
 ## Architecture
 
-Game rules live in plain C# classes with no dependency on `UnityEngine`, so they can be tested in milliseconds without loading a scene. MonoBehaviours only connect those classes to the engine.
+All code lives in `Assets/Scripts`, grouped by feature (screaming architecture): the folder names say what the game does. Inside each feature, game rules are plain C# classes with no dependency on `UnityEngine`, so they can be tested in milliseconds without loading a scene; MonoBehaviours only connect them to the engine.
 
 ```
 Assets/
-├── Scripts/
-│   ├── Core/         Game.Core      → pure C#: WaveGenerator, CombatCalculator, UpgradeSystem, ScoreService
-│   └── Unity/        Game.Unity     → MonoBehaviours, UI, input, persistence adapters
+├── Scripts/                 Game.asmdef
+│   ├── Player/              movement, auto-shooting
+│   ├── Combat/              damage and health rules
+│   ├── Waves/               seeded wave generation
+│   ├── Upgrades/            upgrades between waves
+│   ├── Score/               scoring and high score
+│   ├── Settings/            volume and vibration
+│   ├── GameFlow/            menus, pause, victory and defeat
+│   └── Shared/              seeded random, persistence interfaces
 ├── Tests/
-│   ├── EditMode/     Tests.EditMode → fast unit tests for Game.Core
-│   └── PlayMode/     Tests.PlayMode → scene and flow tests
-├── Art/              (all rights reserved, see License)
-└── Audio/            (all rights reserved, see License)
+│   ├── EditMode/            Tests.EditMode.asmdef → mirrors the feature folders
+│   └── PlayMode/            Tests.PlayMode.asmdef
+├── PreFabs/
+├── Scenes/
+├── Images/                  (all rights reserved, see License)
+└── Audio/                   (all rights reserved, see License)
 ```
 
 Design decisions that make the game testable:
@@ -136,6 +144,6 @@ git config merge.unityyamlmerge.driver '"<path-to-unity>/Tools/UnityYAMLMerge" m
 ## License
 
 - **Source code** (`*.cs`, scripts, configuration, workflows): [MIT](LICENSE).
-- **Art, audio, the name "One Room, Three Waves" and the app icon**: © 2026 Michael Estiven Reyes Escobar. All rights reserved. They may not be reused or redistributed, including in builds published to app stores.
+- **Images, audio, the name "One Room, Three Waves" and the app icon**: © 2026 Michael Estiven Reyes Escobar. All rights reserved. They may not be reused or redistributed, including in builds published to app stores.
 
 The AltTester Unity SDK is used only in development and test builds and is not part of this repository or of release builds.
