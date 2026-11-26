@@ -172,7 +172,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.archi.vs.roguelikemvp
     Standalone: com.DefaultCompany.2D-URP
-    iPhone: cpm.archi.vs.roguelikemvp
+    iPhone: com.archi.vs.roguelikemvp
   buildNumber:
     Standalone: 0
     VisionOS: 0
