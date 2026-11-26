@@ -170,8 +170,9 @@ PlayerSettings:
   androidMaxAspectRatio: 2.4
   androidMinAspectRatio: 1
   applicationIdentifier:
-    Android: com.archivsvideogamesstudio.roguelikemvp
+    Android: com.archi.vs.roguelikemvp
     Standalone: com.DefaultCompany.2D-URP
+    iPhone: cpm.archi.vs.roguelikemvp
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -454,6 +455,9 @@ PlayerSettings:
   - serializedVersion: 3
     m_BuildTarget: Android
     m_Formats: 01000000i
+  - serializedVersion: 3
+    m_BuildTarget: iOS
+    m_Formats: 03000000i
   playModeTestRunnerEnabled: 0
   runPlayModeTestAsEditModeTest: 0
   actionOnDotNetUnhandledException: 1
